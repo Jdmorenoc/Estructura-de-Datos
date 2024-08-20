@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 
@@ -16,6 +17,9 @@ public class Ventanaprincipal extends javax.swing.JFrame {
     int [] arrayMenores;
     int [] arrayMayores;
     int [] arrayAdultos;
+    int tMenores = 0;
+    int tMayores = 0;
+    int tAdultos = 0;
     
     public Ventanaprincipal() {
         initComponents();
@@ -33,24 +37,40 @@ public class Ventanaprincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         create = new javax.swing.JButton();
         search = new javax.swing.JButton();
+        size = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 0, 153));
         jLabel1.setText("SISTEMA ACADEMICO");
 
+        create.setBackground(new java.awt.Color(204, 204, 255));
+        create.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
         create.setText("Crear");
+        create.setEnabled(false);
         create.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createActionPerformed(evt);
             }
         });
 
+        search.setBackground(new java.awt.Color(204, 204, 255));
+        search.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
         search.setText("Consultar");
+        search.setEnabled(false);
         search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchActionPerformed(evt);
+            }
+        });
+
+        size.setBackground(new java.awt.Color(204, 204, 255));
+        size.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        size.setText("Tamaños");
+        size.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sizeActionPerformed(evt);
             }
         });
 
@@ -59,15 +79,17 @@ public class Ventanaprincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(135, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(135, 135, 135))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(73, 73, 73)
+                .addGap(40, 40, 40)
+                .addComponent(size)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(create)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addComponent(search)
-                .addGap(79, 79, 79))
+                .addGap(27, 27, 27))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,26 +99,25 @@ public class Ventanaprincipal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(create)
-                    .addComponent(search))
-                .addContainerGap(215, Short.MAX_VALUE))
+                    .addComponent(search)
+                    .addComponent(size))
+                .addContainerGap(207, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createActionPerformed
-        arrayMenores = new int[5];
-        arrayMayores = new int[5];
-        arrayAdultos = new int[5];
+        
         int person = 1; int ime = 0; int ima = 0; int iad = 0;
         
-        while(person <= 15){
+        while(person <= (tMenores + tMayores + tAdultos)){
             
             int age = Integer.parseInt(JOptionPane.showInputDialog(rootPane, "Diga su edad"));
 
             if(age < 18 && age > 0 ){
                 if(ime < arrayMenores.length){
-                    JOptionPane.showMessageDialog(rootPane, "Usted es menor de edad");
+                   JOptionPane.showMessageDialog(rootPane, "Usted es menor de edad");
                     arrayMenores[ime] = age;
                     ime++;
                 }else{
@@ -116,7 +137,7 @@ public class Ventanaprincipal extends javax.swing.JFrame {
 
             }else if(age >= 60){
                 if(iad < arrayAdultos.length){
-                    JOptionPane.showMessageDialog(rootPane, "Usted es adulto mayor");
+                   JOptionPane.showMessageDialog(rootPane, "Usted es adulto mayor");
                     arrayAdultos[iad] = age;
                     iad++;
                 }else{
@@ -125,11 +146,12 @@ public class Ventanaprincipal extends javax.swing.JFrame {
                 }
             }else{
                 JOptionPane.showMessageDialog(rootPane, "Edad no valida");
+                person--;
             }
             
             person++;
         }
-      
+        search.setEnabled(true);
     }//GEN-LAST:event_createActionPerformed
 
     //Metodo para concatenar 
@@ -143,20 +165,28 @@ public class Ventanaprincipal extends javax.swing.JFrame {
     
     private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
         //Para mostrar las edades de menor a mayor 
-        //Es un metodo de java que hace que el contenido de los array de ordene
+        //Es un metodo de java que hace que el contenido de los array se ordenen de menor a mayor 
         Arrays.sort(arrayMenores);
         Arrays.sort(arrayMayores);    
         Arrays.sort(arrayAdultos);
         
-        JOptionPane.showMessageDialog(rootPane, "Menores de edad");
-        JOptionPane.showMessageDialog(rootPane,arrayToString(arrayMenores));
-        JOptionPane.showMessageDialog(rootPane, "Mayores de edad");
-        JOptionPane.showMessageDialog(rootPane, arrayToString(arrayMayores));
-        JOptionPane.showMessageDialog(rootPane, "Adulto mayor");
-        JOptionPane.showMessageDialog(rootPane, arrayToString(arrayAdultos));
+        JOptionPane.showMessageDialog(rootPane, "Menores de edad" + "\n" + arrayToString(arrayMenores));
+        JOptionPane.showMessageDialog(rootPane, "Mayores de edad" + "\n"  + arrayToString(arrayMayores));
+        JOptionPane.showMessageDialog(rootPane, "Adulto mayor" + "\n"  + arrayToString(arrayAdultos));
     }//GEN-LAST:event_searchActionPerformed
 
-    
+    private void sizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sizeActionPerformed
+        tMenores = Integer.parseInt(JOptionPane.showInputDialog(rootPane, "Ingrese la cantidad de menores que desee"));
+        tMayores = Integer.parseInt(JOptionPane.showInputDialog(rootPane, "Ingrese la cantidad de mayores que desee"));
+        tAdultos = Integer.parseInt(JOptionPane.showInputDialog(rootPane, "Ingrese la cantidad de adultos que desee"));
+        
+        arrayMenores = new int[tMenores];
+        arrayMayores = new int[tMayores];
+        arrayAdultos = new int[tAdultos];
+        
+        create.setEnabled(true);
+    }//GEN-LAST:event_sizeActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -197,5 +227,6 @@ public class Ventanaprincipal extends javax.swing.JFrame {
     private javax.swing.JButton create;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton search;
+    private javax.swing.JButton size;
     // End of variables declaration//GEN-END:variables
 }
