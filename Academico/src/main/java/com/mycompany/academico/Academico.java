@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.global.academico;
+package com.mycompany.academico;
 
 /**
  *
- * @author SCIS2-02
+ * @author SCIS2-08
  */
 public class Academico {
 
