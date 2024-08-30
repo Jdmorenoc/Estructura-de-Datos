@@ -1,14 +1,18 @@
-package global.restaurante;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package com.mycompany.restaurante;
 
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Juan
+ * @author PC
  */
 public class Ventana extends javax.swing.JFrame {
 
-    Menu objmenu = new Menu();
+    Menu objMenu = new Menu();
     
     public Ventana() {
         initComponents();
@@ -23,25 +27,26 @@ public class Ventana extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        titulo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         crear = new javax.swing.JButton();
         consultar = new javax.swing.JButton();
-        ingresar = new javax.swing.JButton();
-        analizar = new javax.swing.JButton();
+        ingresarDatos = new javax.swing.JButton();
+        analizarInformacion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        titulo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        titulo.setText("ANALITICA DE DATOS UFPSO");
+        jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 0, 153));
+        jLabel1.setText("ANALITICA DE DATOS UFPSO");
 
-        crear.setText("Crear menú");
+        crear.setText("Crear Menu");
         crear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 crearActionPerformed(evt);
             }
         });
 
-        consultar.setText("Consultar menú");
+        consultar.setText("Consultar Menú");
         consultar.setEnabled(false);
         consultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,75 +54,81 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
-        ingresar.setText("Ingresar datos");
-        ingresar.setEnabled(false);
-        ingresar.addActionListener(new java.awt.event.ActionListener() {
+        ingresarDatos.setText("Ingresar datos");
+        ingresarDatos.setEnabled(false);
+        ingresarDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ingresarActionPerformed(evt);
+                ingresarDatosActionPerformed(evt);
             }
         });
 
-        analizar.setText("Analizar informacion");
-        analizar.setEnabled(false);
+        analizarInformacion.setText("Analizar información");
+        analizarInformacion.setEnabled(false);
+        analizarInformacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                analizarInformacionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(crear)
-                        .addGap(18, 18, 18)
-                        .addComponent(consultar)
-                        .addGap(18, 18, 18)
-                        .addComponent(ingresar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(analizar)))
-                .addContainerGap(19, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(titulo)
-                .addGap(73, 73, 73))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(50, 50, 50))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(crear)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addComponent(consultar)
+                        .addGap(29, 29, 29)
+                        .addComponent(ingresarDatos)
+                        .addGap(18, 18, 18)))
+                .addComponent(analizarInformacion)
+                .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(titulo)
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(crear)
                     .addComponent(consultar)
-                    .addComponent(ingresar))
-                .addGap(18, 18, 18)
-                .addComponent(analizar)
-                .addContainerGap(179, Short.MAX_VALUE))
+                    .addComponent(ingresarDatos)
+                    .addComponent(analizarInformacion))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed
+        objMenu.crearMenu(Integer.parseInt(JOptionPane.showInputDialog(rootPane, "Ingrese la cantidad de platos")));
         
-        objmenu.crearMenu(Integer.parseInt
-        (JOptionPane.showInputDialog("Diga el numero de platos")));
-        consultar.setEnabled(true);
+        consultar.setEnabled(true); //Para habilitar el botón
     }//GEN-LAST:event_crearActionPerformed
 
-    private void ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarActionPerformed
-        objmenu.ingresarDatos();
-        
-        
-    }//GEN-LAST:event_ingresarActionPerformed
-
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
-        objmenu.consultarMenu();
-        ingresar.setEnabled(true);
+        objMenu.consultarMenu();
         
+        ingresarDatos.setEnabled(true);
     }//GEN-LAST:event_consultarActionPerformed
+
+    private void ingresarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarDatosActionPerformed
+        objMenu.ingresarDatos();
+        
+        analizarInformacion.setEnabled(true);
+    }//GEN-LAST:event_ingresarDatosActionPerformed
+
+    private void analizarInformacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_analizarInformacionActionPerformed
+        objMenu.analizarInformacion();
+    }//GEN-LAST:event_analizarInformacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,10 +166,10 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton analizar;
+    private javax.swing.JButton analizarInformacion;
     private javax.swing.JButton consultar;
     private javax.swing.JButton crear;
-    private javax.swing.JButton ingresar;
-    private javax.swing.JLabel titulo;
+    private javax.swing.JButton ingresarDatos;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
