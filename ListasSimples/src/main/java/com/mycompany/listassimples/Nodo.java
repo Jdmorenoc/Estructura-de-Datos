@@ -1,28 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.mycompany.listasimple;
+package com.mycompany.listassimples;
 
-/**
- *
- * @author SCIS2-01
- */
 public class Nodo {
-
-    /**
-     * @return the enlace
-     */
-    public Nodo getEnlace() {
-        return enlace;
-    }
-
-    /**
-     * @param enlace the enlace to set
-     */
-    public void setEnlace(Nodo enlace) {
-        this.enlace = enlace;
-    }
 
     /**
      * @return the nombre
@@ -65,13 +43,39 @@ public class Nodo {
     public void setPromedio(float promedio) {
         this.promedio = promedio;
     }
-    
+
+    /**
+     * @return the indice
+     */
+    public int getIndice() {
+        return indice;
+    }
+
+    /**
+     * @param indice the indice to set
+     */
+    public void setIndice(int indice) {
+        this.indice = indice;
+    }
+
+    /**
+     * @return the enlace
+     */
+    public Nodo getEnlace() {
+        return enlace;
+    }
+
+    /**
+     * @param enlace the enlace to set
+     */
+    public void setEnlace(Nodo enlace) {
+        this.enlace = enlace;
+    }
+
     private String nombre;
     private int edad;
     private float promedio;
+    private int indice;
     
     private Nodo enlace;
-    
-    
-    
 }
