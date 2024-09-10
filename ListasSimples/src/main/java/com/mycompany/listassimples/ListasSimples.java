@@ -113,6 +113,40 @@ public class ListasSimples {
         }
     }
 
+    public void eliminarIndice(int indice){
+        
+        int posicion = 1;
+        boolean indiceEncontrado = false;
+        
+        Nodo anterior = inicio;
+        Nodo siguiente = null;
+        if(indice == 1){
+            inicio= inicio.getEnlace();
+            return;
+        }
+        
+        while(anterior!=null){
+            if(posicion+1==indice){
+                siguiente = anterior.getEnlace().getEnlace();
+                indiceEncontrado = true;
+                break;
+            }
+            anterior = anterior.getEnlace();
+            posicion++;
+        }
+        if(indiceEncontrado){
+            anterior.setEnlace(siguiente);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "no se encontro el indice ingresado");
+        }
+        
+    }
+    
+    public void eliminarValor() {
+        
+    }
+    
     
     public void consultar(){
         Nodo temporal = inicio;

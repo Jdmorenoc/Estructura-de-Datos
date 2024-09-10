@@ -76,9 +76,15 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="agregarPorDato" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="eliminarIndice" max="32767" attributes="0"/>
+                          <Component id="agregarPorDato" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                      <Component id="agregarPorIndice" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="agregarPorIndice" max="32767" attributes="0"/>
+                          <Component id="eliminarValor" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -118,7 +124,12 @@
                   <Component id="agregarPorDato" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="agregarPorIndice" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="59" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="eliminarIndice" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="eliminarValor" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -211,6 +222,22 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="indice">
+    </Component>
+    <Component class="javax.swing.JButton" name="eliminarIndice">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Eliminar indice"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eliminarIndiceActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="eliminarValor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Eliminar por valor"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eliminarValorActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

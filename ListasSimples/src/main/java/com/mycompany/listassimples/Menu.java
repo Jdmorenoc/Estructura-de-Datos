@@ -41,6 +41,8 @@ public class Menu extends javax.swing.JFrame {
         agregarPorIndice = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         indice = new javax.swing.JTextField();
+        eliminarIndice = new javax.swing.JButton();
+        eliminarValor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,6 +118,20 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        eliminarIndice.setText("Eliminar indice");
+        eliminarIndice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarIndiceActionPerformed(evt);
+            }
+        });
+
+        eliminarValor.setText("Eliminar por valor");
+        eliminarValor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarValorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -160,9 +176,13 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addComponent(agregarPorDato)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(eliminarIndice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(agregarPorDato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(34, 34, 34)
-                        .addComponent(agregarPorIndice)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(agregarPorIndice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(eliminarValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -193,7 +213,11 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(agregarPorDato)
                     .addComponent(agregarPorIndice))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(eliminarIndice)
+                    .addComponent(eliminarValor))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -240,6 +264,14 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_promedioActionPerformed
 
+    private void eliminarIndiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarIndiceActionPerformed
+        
+    }//GEN-LAST:event_eliminarIndiceActionPerformed
+
+    private void eliminarValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarValorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eliminarValorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -281,6 +313,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton consultar;
     private javax.swing.JButton crearListaInicio;
     private javax.swing.JTextField edad;
+    private javax.swing.JButton eliminarIndice;
+    private javax.swing.JButton eliminarValor;
     private javax.swing.JTextField indice;
     private javax.swing.JButton insertarFinal;
     private javax.swing.JButton jButton1;
